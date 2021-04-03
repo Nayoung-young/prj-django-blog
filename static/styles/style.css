@@ -1,0 +1,11 @@
+/**
+main-color: 
+**/
+nav {
+    width: 100%; 
+    display: flex; 
+}
+
+button {
+    color: blue;
+}

@@ -1,0 +1,30 @@
+<h3 class="content">Projects</h3>
+<br>
+
+<div class="post-box">
+{% for post in posts %}
+		<h3><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h3> 
+		{{post.modify_dt|date:"N d, Y"}}
+		<p>{{ post.description }}</p>
+{% endfor %} 
+
+<!--photo 앱 사진 정렬렬-->
+</div>
+
+<br>
+
+<div class="page-box">  
+	<span> 
+		{% if page_obj.has_previous %} 
+			<a href="?page={{ page_obj.previous_page_number }}">preious page</a>
+		{% endif %}
+
+		Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+		{% if page_obj.has_next %} 
+			<a href="?page={{ page_obj.next_page_number }}">want more?</a> 
+		{% endif %} 
+
+
+	
+	</span>

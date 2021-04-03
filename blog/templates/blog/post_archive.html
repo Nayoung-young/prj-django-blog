@@ -1,0 +1,22 @@
+<h3>지금까지 진행한 프로젝트</h3>
+
+{% for date in date_list %}
+<div>
+	<span> {{ date|date:"Y년" }} </span>
+
+	<ul>
+		{% for post in object_list %}
+
+		{% if post.modify_dt|date:"Y" == date|date:"Y" %}
+		<div>
+			{{ post.modify_dt|date:"F j일" }}
+			<a href="{{ post.get_absolute_url }}">{{ post.title }} </a></li>
+		</div>
+		{% endif %}
+
+		{% endfor %}
+	</ul>
+
+
+</div>
+{% endfor %}

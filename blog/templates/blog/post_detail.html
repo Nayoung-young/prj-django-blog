@@ -1,0 +1,16 @@
+<h2 class="post-title">{{object.title}}</h2>
+
+<p class="post-date">{{object.modify_dt|date:"N d, Y"}}</p>
+<div><!-- photo app--></div>
+<div class="post-content">{{object.content|linebreaks}}</div>
+
+<p>
+	{% if object.get_previous %} 
+	<a href="{{object.get_previous.get_absolute_url}}" title="View previous post"> --{{object.get_previous}}</a>
+	{% endif %} 
+
+	{% if object.get_next %}
+	<a href="{{ object.get_next.get_absolute_url}}" title="View next post">{{object.get_next}}--</a>
+	{% endif %}
+</p>
+
