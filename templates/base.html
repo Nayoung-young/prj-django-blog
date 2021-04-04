@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{% block title %}Home Page{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}?after">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}?after">
+    {% block extra-style %}{% endblock%}
+    <!--<link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">-->
+    
+</head>
+
+<body>
+    <nav>
+        <button class="nav-btn">profile</button>
+        <button class="nav-btn dropdown-btn">projects</button>
+        <button class="nav-btn hidden">menu</button>
+        <button class="nav-btn hidden">menu</button>
+        <button class="nav-btn">search</button>
+    </nav>
+
+    
+    <profile>
+        {% block profile %}{% endblock %} 
+    </profile>
+    
+
+    <content>
+        {% block content %}{% endblock %}
+    </content>
+
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+
+    {% block extra-script %}{% endblock %}
+</body>
+
+</html>
