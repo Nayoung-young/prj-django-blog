@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}taggit_post_list.html{% endblock %}
+
+{% block content %}
+    <h3>Blog Tag Cloud</h3>
+    <br>
+    <div class="tag-cloud">
+        {% load taggit_templatetags2_tags %}
+        {% get_tagcolud as tags %}
+        {% for tag in tags %}
+        {% endfor %}
+
+    </div>

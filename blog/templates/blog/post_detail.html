@@ -1,3 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}post_list.html{% endblock %}
+
+{% block content %}
+
 <h2 class="post-title">{{object.title}}</h2>
 
 <p class="post-date">{{object.modify_dt|date:"N d, Y"}}</p>
@@ -13,4 +19,18 @@
 	<a href="{{ object.get_next.get_absolute_url}}" title="View next post">{{object.get_next}}--</a>
 	{% endif %}
 </p>
+
+<br> 
+<div class="tag-box">
+	<span>TAGS</span>
+	{% load taggit_templatetags2_tags %}
+	{% get_tags_for_object object as "tags" %}
+	{% for tag in tags %}
+	<a href="{% url 'blog:tagged_object_list' tag.name %}">{{ tag.name }}</a>
+	{% endfor %}
+	<a href="{% url 'blog:tag_cloud' %}"><button class="tagcloud-btn">TagCloud</button></a>
+</div>
+	
+
+{% endblock %}
 

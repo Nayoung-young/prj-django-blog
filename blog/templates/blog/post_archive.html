@@ -1,3 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}post_list.html{% endblock %}
+
+{% block content %}
+
 <h3>지금까지 진행한 프로젝트</h3>
 
 {% for date in date_list %}
@@ -16,7 +22,8 @@
 
 		{% endfor %}
 	</ul>
-
-
 </div>
+
 {% endfor %}
+
+{% endblock %}
