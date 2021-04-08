@@ -3,12 +3,14 @@
 {% block title %}taggit_post_list.html{% endblock %}
 
 {% block content %}
-    <h3>Blog Tag Cloud</h3>
-    <br>
-    <div class="tag-cloud">
-        {% load taggit_templatetags2_tags %}
-        {% get_tagcolud as tags %}
-        {% for tag in tags %}
-        {% endfor %}
+    <h3>Posts for tag - {{ tagname }}</h3>
+    <br> 
 
-    </div>
+    {% for post in object_list %} 
+    	<h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+	{{ post.modify_dt|date:"N d, Y" }}
+	<p>{{ post.description }}</p> 
+	{% endfor %} 
+
+	{% endblock %} 
+
