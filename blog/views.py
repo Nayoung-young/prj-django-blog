@@ -8,7 +8,15 @@ class PostLV(ListView):
     paginate_by = 4
 
 class PostDV(DetailView):
-    model = Post 
+    model = Post
+
+    def get_context_data(self, **kwargs): 
+        context = super().get_context_data(**kwargs)
+        context['disqus_short'] = 'myfirstblog'
+        context['disqus_id'] = f"post-{self.object.id}-{self.object.slug}"
+        context['disqus_url'] = "http://127.0.0.1:8000/"+f"{self.object.get_absolute_url()}"
+        context['disqus_title'] = f"{self.object.slug}"
+        return context
 
 
 class PostAV(ArchiveIndexView):
