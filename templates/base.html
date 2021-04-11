@@ -8,20 +8,20 @@
     
     <title>{% block title %}Home Page{% endblock %}</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'styles/reset.css' %}?after">
-    <link rel="stylesheet" href="{% static 'styles/style.css' %}?after">
+    <!--<link rel="stylesheet" href="{% static 'styles/reset.css' %}?after">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}?after">-->
     {% block extra-style %}{% endblock %}
-    <!--<link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/style.css">-->   
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
     <nav>
-        <button class="nav-btn">profile</button>
-        <button class="nav-btn dropdown-btn">projects</button>
-        <button class="nav-btn hidden">menu</button>
-        <button class="nav-btn hidden">menu</button>
-        <button class="nav-btn">search</button>
+        <button class="nav-btn">about</button>
+        <button class="nav-btn dropdown-btn" onclick="location.href='{%url 'blog:tag_cloud' %}'">skill</button>
+        <button class="nav-btn">works</button>
+        <button class="nav-btn">contact</button>
+	<button class="nav-btn search-btn" onclick="location.href='{%url 'blog:search' %}'">search</button>
     </nav>
 
     {% block profile %}
@@ -37,6 +37,8 @@
         {% endblock %}
     </footer>
 
+    <script src="script/base.js"></script>
+    <!--<script scr="{% static 'script/base.js' %}"></script>-->
     {% block extra-script %}
     {% endblock %}
 </body>
